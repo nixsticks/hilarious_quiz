@@ -1,21 +1,21 @@
-<form action="/result" method="POST">
-  <% @questions.size.times do |i| %>
-    <p>
-      <label for="POST-question<%= i %>"><%= @questions[i] %></label>
-      <br><br>
-      <% options = [
-      "<input type='radio' id='ashley' name='#{i}' value='-1'>&nbsp;#{@options[i][0]}</input><br>",
-      "<input type='radio' id='blake' name='#{i}' value='1'>&nbsp;#{@options[i][1]}</input><br>",
-      "<input type='radio' id='neither' name='#{i}' value='0'>&nbsp;#{@options[i][2]}</input><br>"
-      ].shuffle
-      %>
-      <% options.each do |option| %>
-        <%= option %>
-      <% end %>
-      <br>
-    </p>
-  <% end %>
+<form action="/next" method="POST">
+  <p>
+    <label for="POST-question0"><%= @questions[0] %></label>
+    <br><br>
+    <% options = [
+    "<input type='radio' id='ashley' name='0' value='-1'>&nbsp;#{@options[0][0]}</input><br>",
+    "<input type='radio' id='blake' name='0' value='1'>&nbsp;#{@options[0][1]}</input><br>",
+    "<input type='radio' id='neither' name='0' value='0'>&nbsp;#{@options[0][2]}</input><br>"
+    ].shuffle
+    %>
+    <% options.each do |option| %>
+      <%= option %>
+    <% end %>
+    <br>
+  </p>
   <div class="button">
     <button type="submit" value="submit">Score me!</button>
   </div>
 </form>
+
+<!-- input type hidden? -->

@@ -7,7 +7,10 @@ end
 
 module Quiz
   class App < Sinatra::Application
+    use Rack::Session::Cookie, :key => 'rack.session', :domain => 'herokuapp.com', :path => '/', :expire_after => 2592000, :secret => 'change_me'
+
     before do
+      @answers ||= []
       @questions = get_questions
       @options = get_options
       @results = {
@@ -19,6 +22,26 @@ module Quiz
 
     get '/' do
       erb :quiz
+    end
+
+    post '/next' do
+      @size = params.size
+      if params.size == @questions.size
+        result = params.values.map {|value| value.to_i}.reduce(:+)
+        if result < -5
+          answer = :ashley
+        elsif result > 5
+          answer = :blake
+        else
+          answer = :blashley
+        end
+        @header = @results[answer].first
+        @message = @results[answer][1..-1]
+        @image = "#{answer.to_sym}.jpg"
+        erb :result
+      else
+        erb :next
+      end
     end
 
     post '/result' do
