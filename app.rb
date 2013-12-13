@@ -20,11 +20,12 @@ module Quiz
       result = params.values.map {|value| value.to_i}.reduce(:+)
       if result < 0
         @message = "You are Ashley!
-        You are fond of doges and 
+        You are fond of doges and meatspace.
         You are awesome."
         @image = "ashley_image"
       elsif result > 0
         @message = "You are Blake!
+        You are fond of avocadoes.
         You are awesome."
         @image = "blake_image"
       else
