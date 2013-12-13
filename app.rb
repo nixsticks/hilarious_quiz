@@ -10,6 +10,11 @@ module Quiz
     before do
       @questions = get_questions
       @options = get_options
+      @results = {
+        :ashley => ["You are Ashley!", "You like doges and hang out on meat-space.", "You are an internet wizard.", "You are awesome."],
+        :blake => ["You are Blake!", "You are a world traveler who surfs a lot.", "You are known for eating entire avo-cadoes.", "You are awesome."],
+        :blashley => ["A WILD BLASHLEY APPEARS!", "You are a rare blend of our two instructors.", "Perhaps you like doges that eat avocadoes.", "Or perhaps doges on surfboards."]
+      }
     end
 
     get '/' do
@@ -19,21 +24,15 @@ module Quiz
     post '/result' do
       result = params.values.map {|value| value.to_i}.reduce(:+)
       if result < 0
-        @message = "You are Ashley!
-        You are fond of doges and meatspace.
-        You are awesome."
-        @image = "ashley_image"
+        answer = :ashley
       elsif result > 0
-        @message = "You are Blake!
-        You are fond of avocadoes.
-        You are awesome."
-        @image = "blake_image"
+        answer = :blake
       else
-        @message = "A WILD BLASHLEY APPEARS!
-
-        You are a rare blend of "
-        @image = "blashley_image"
+        answer = :blashley
       end
+      @header = @results[answer].first
+      @message = @results[answer][1..-1]
+      @image = "#{answer.to_sym}.jpg"
       erb :result
     end
 

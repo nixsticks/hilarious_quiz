@@ -28,14 +28,25 @@ header a {
 
 button {
   text-align: center;
-
+  
 }
 
-.button {
-  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #3778bd), color-stop(1, #0d3678) );
-  background:-moz-linear-gradient( center top, #3778bd 5%, #0d3678 100% );
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3778bd', endColorstr='#0d3678');
-  background-color:#3778bd;
+h1 {
+  text-align: center;
+}
+
+img {
+  max-width: 200px;
+  height: auto;
+}
+
+.image {
+  text-align: center;
+}
+
+button {
+  background: #61B7CF;
+  background-color:#61B7CF;
   -webkit-border-top-left-radius:20px;
   -moz-border-radius-topleft:20px;
   border-top-left-radius:20px;
@@ -48,31 +59,27 @@ button {
   -webkit-border-bottom-left-radius:20px;
   -moz-border-radius-bottomleft:20px;
   border-bottom-left-radius:20px;
-  text-indent:0;
-  border:1px solid #337fed;
+  border: 1px solid white;
   display:inline-block;
   color:#ffffff;
-  font-family:Arial;
-  font-size:15px;
-  font-weight:bold;
-  font-style:normal;
-  height:29px;
-  line-height:29px;
-  width:97px;
   text-decoration:none;
   text-align:center;
 }
 
-.button:hover {
+button:hover {
   background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #0d3678), color-stop(1, #3778bd) );
   background:-moz-linear-gradient( center top, #0d3678 5%, #3778bd 100% );
   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0d3678', endColorstr='#3778bd');
   background-color:#0d3678;
 }
 
-.button:active {
+button:active {
   position:relative;
   top:1px;
+}
+
+.button {
+  margin-left: 60px;
 }
 
 .container {
