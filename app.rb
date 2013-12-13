@@ -23,9 +23,9 @@ module Quiz
 
     post '/result' do
       result = params.values.map {|value| value.to_i}.reduce(:+)
-      if result < 0
+      if result < -5
         answer = :ashley
-      elsif result > 0
+      elsif result > 5
         answer = :blake
       else
         answer = :blashley
