@@ -6,15 +6,13 @@
       <label for="POST-question<%= @size %>"><center><%= @questions[@size] %></center></label>
       <br><br>
       <% options = [
-      "<input type='radio' id='ashley' name='#{@size}' value='-1'>&nbsp;#{@options[@size][0]}</input><br>",
-      "<input type='radio' id='blake' name='#{@size}' value='1'>&nbsp;#{@options[@size][1]}</input><br>",
-      "<input type='radio' id='neither' name='#{@size}' value='0'>&nbsp;#{@options[@size][2]}</input><br>"
+      "<label for='ashley'><input type='radio' id='ashley' name='#{@size}' value='-1'>&nbsp;#{@options[@size][0]}</input></label><br>",
+      "<label for='blake'><input type='radio' id='blake' name='#{@size}' value='1'>&nbsp;#{@options[@size][1]}</input></label><br>",
+      "<label for='neither'><input type='radio' id='neither' name='#{@size}' value='0'>&nbsp;#{@options[@size][2]}</input></label><br>"
       ].shuffle
       %>
       <% options.each do |option| %>
-        <label for="answer<%= options.index(option) %>">
           <%= option %>
-        </label>
       <% end %>
     </p>
   <div class="button">
