@@ -1,7 +1,9 @@
-<h1><%= @header %></h1>
-<div class="image">
-  <img src="/images/<%= @image %>">
+<div class="container-2">
+  <h1><%= @header %></h1>
+  <div class="image">
+    <img src="/images/<%= @image %>">
+  </div>
+  <% @message.each do |line| %>
+    <p><%= line %></p>
+  <% end %>
 </div>
-<% @message.each do |line| %>
-  <p><%= line %></p>
-<% end %>
