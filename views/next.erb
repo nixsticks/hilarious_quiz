@@ -3,7 +3,7 @@
     <input type="hidden" name="<%= [i] %>" value="<%= params["#{i}"] %>">
   <% end %>
     <p>
-      <label for="POST-question<%= @size %>"><center><%= @questions[@size] %></center>
+      <label for="POST-question<%= @size %>"><center><%= @questions[@size] %></center></label>
       <br><br>
       <% options = [
       "<input type='radio' id='ashley' name='#{@size}' value='-1'>&nbsp;#{@options[@size][0]}</input><br>",
@@ -12,9 +12,10 @@
       ].shuffle
       %>
       <% options.each do |option| %>
-        <%= option %>
+        <label for="answer<%= options.index(option) %>">
+          <%= option %>
+        </label>
       <% end %>
-      </label>
     </p>
   <div class="button">
     <button type="submit" value="submit">Score me!</button>

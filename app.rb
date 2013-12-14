@@ -28,9 +28,9 @@ module Quiz
       @size = params.size
       if params.size == @questions.size
         result = params.values.map {|value| value.to_i}.reduce(:+)
-        if result < -5
+        if result < -1
           answer = :ashley
-        elsif result > 5
+        elsif result > 1
           answer = :blake
         else
           answer = :blashley
